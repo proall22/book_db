@@ -1,0 +1,49 @@
+{
+  "books": [
+    {
+      "title": "The Midnight Library",
+      "author": "Matt Haig",
+      "isbn": "978-0525559474",
+      "publishedYear": 2020,
+      "coverImage": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3"
+    },
+    {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "isbn": "978-0441172719",
+      "publishedYear": 1965,
+      "coverImage": "https://images.unsplash.com/photo-1506466010722-395aa2bef877?auto=format&fit=crop&q=80&w=2088&ixlib=rb-4.0.3"
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "isbn": "978-0593135204",
+      "publishedYear": 2021,
+      "coverImage": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=2074&ixlib=rb-4.0.3"
+    },
+    {
+      "id": "1732516419646",
+      "title": "New Book",
+      "author": "Author Name",
+      "isbn": "978-1234567890",
+      "publishedYear": 2023,
+      "coverImage": "https://example.com/image.jpg"
+    },
+    {
+      "id": "1732516472767",
+      "title": "New Book2",
+      "author": "Author Name",
+      "isbn": "978-1234567890",
+      "publishedYear": 2023,
+      "coverImage": ""
+    },
+    {
+      "id": "1732516501218",
+      "title": "NewBook2",
+      "author": "Author Name",
+      "isbn": "978-1234567890",
+      "publishedYear": 2023,
+      "coverImage": ""
+    }
+  ]
+}
