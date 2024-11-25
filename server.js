@@ -121,16 +121,24 @@ app.get("/api/books/stats", async (req, res) => {
 	try {
 		const db = await readDB();
 		const totalBooks = db.books.length;
-		const yearStats = db.books.reduce((stats, book) => {
+
+		
+		const yearStatsObject = db.books.reduce((stats, book) => {
 			stats[book.publishedYear] = (stats[book.publishedYear] || 0) + 1;
 			return stats;
 		}, {});
+		const yearStats = Object.entries(yearStatsObject).map(([year, count]) => ({
+			id: Number(year),
+			count,
+		}));
+
 		const authorStats = db.books.reduce((stats, book) => {
 			stats[book.author] = (stats[book.author] || 0) + 1;
 			return stats;
 		}, {});
 		const topAuthors = Object.entries(authorStats)
-			.sort((a, b) => b[1] - a[1])
+			.map(([id, count]) => ({ id, count }))
+			.sort((a, b) => b.count - a.count)
 			.slice(0, 5);
 
 		res.json({
@@ -140,9 +148,11 @@ app.get("/api/books/stats", async (req, res) => {
 			lastUpdated: new Date(),
 		});
 	} catch (error) {
-		res.status(500).json({ error: "Error fetching statistics" });
+		console.error("Error fetching stats:", error);
+		res.status(500).json({ error: "Failed to fetch statistics" });
 	}
 });
+
 
 app.get("/api/books/by-decade/:decade", async (req, res) => {
 	const decade = parseInt(req.params.decade);
